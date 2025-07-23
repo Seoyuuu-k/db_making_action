@@ -7,13 +7,23 @@
 # 리스트에 크롤링 정보 저장
 
 from selenium import webdriver as wb # 브라우저 제어
+from selenium.webdriver.chrome.service import Service # Service 셋팅
+from selenium.webdriver.chrome.options import Options # options 셋팅
 from selenium.webdriver.common.by import By # 선택자 구분
 from selenium.webdriver.common.keys import Keys # 키보드 제어
 from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException # selenium 요소 에러 예외 처리 코드
 import requests # 요청 관련 라이브러리
 from selenium.webdriver.support.ui import WebDriverWait #
 from selenium.webdriver.support import expected_conditions as EC #
+import pandas as pd
+import sqlite3
 import time
+import csv
+service = Service(executable_path="/usr/bin/chromedriver")
+options = Options()
+options.add_argument("--headless") # 창 없음
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
 
 
 #빈리스트 생성
