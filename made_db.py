@@ -42,7 +42,7 @@ food_image_list  = []
 
 
 url_food = "https://www.menupan.com/Cook/RecipeRe.asp?difficulty=10" # 난이도 분류 음식 사이트
-driver = wb.Chrome()
+driver = wb.Chrome(service=service, options=options)
 wait = WebDriverWait(driver, 10) # 최대 10초까지 대기
 driver.get(url_food)
 i=0
